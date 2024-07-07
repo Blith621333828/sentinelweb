@@ -34,6 +34,7 @@
             padding: 20px;
             text-align: left; /* Tekst wyjustowany do lewej */
             margin-top: 20px;
+            position: relative;
         }
         h1 {
             margin-bottom: 50px; /* Zwiększenie odstępu od napisu do komend */
@@ -77,6 +78,36 @@
             margin-top: 10px; /* Mniejszy margines */
             text-align: center; /* Tekst wyjustowany do środka */
         }
+        .footer {
+            display: flex;
+            justify-content: flex-end; /* Przyciski wyrównane do prawej */
+            align-items: center;
+            margin-top: 20px;
+        }
+        .back-button {
+            background-color: #5865F2;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-right: 10px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+        .back-button:hover {
+            background-color: #4752C4;
+        }
+        .back-arrow {
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+            margin-left: 5px;
+            transform: translateY(2px);
+        }
+        .back-arrow:hover {
+            color: #ccc;
+        }
     </style>
 </head>
 <body>
@@ -89,6 +120,9 @@
             <div class="command" onclick="copyCommand(this, 's!kick')">s!kick - Komenda do wyrzucania użytkowników</div>
             <div class="command" onclick="copyCommand(this, 's!timeout')">s!timeout - Komenda do tymczasowego wyciszenia użytkowników</div>
             <div class="command" onclick="copyCommand(this, 's!history')">s!history - Komenda do wyświetlania historii użytkownika</div>
+        </div>
+        <div class="footer">
+            <a href="./" class="back-button">Powrót<span class="back-arrow">⮌</span></a>
         </div>
     </div>
     <script>
