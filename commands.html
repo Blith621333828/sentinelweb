@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0EP6HJFY91"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0EP6HJFY91');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel - Komendy</title>
+    <link rel="icon" href="sentinel.png" type="image/png">
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            background-color: #444;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: left; /* Tekst wyjustowany do lewej */
+            margin-top: 20px;
+        }
+        .logo {
+            width: 150px; /* Ustaw szerokość logo */
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin-bottom: 10px;
+            text-align: center; /* Tekst wyjustowany do środka */
+        }
+        .commands {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Komendy wyjustowane do lewej */
+            margin-top: 10px;
+        }
+        .command {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            font-family: monospace;
+            cursor: pointer;
+            width: fit-content;
+            position: relative;
+            text-align: left; /* Tekst komendy wyjustowany do lewej */
+        }
+        .command:hover {
+            background-color: #666;
+        }
+        .copied {
+            position: absolute;
+            background-color: #5865F2; /* Kolor Discorda */
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .development {
+            color: #ccc;
+            margin-top: 10px; /* Mniejszy margines */
+            text-align: center; /* Tekst wyjustowany do środka */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="sentinel.png" alt="Logo Sentinel" class="logo">
+        <h1>Komendy</h1>
+        <p class="development">Wszystkie komendy są w fazie rozwoju. Będzie ich więcej.</p>
+        <div class="commands">
+            <div class="command" onclick="copyCommand(this, 's!ban')">s!ban - Komenda do banowania użytkowników</div>
+            <div class="command" onclick="copyCommand(this, 's!warn')">s!warn - Komenda do ostrzegania użytkowników</div>
+            <div class="command" onclick="copyCommand(this, 's!kick')">s!kick - Komenda do wyrzucania użytkowników</div>
+            <div class="command" onclick="copyCommand(this, 's!timeout')">s!timeout - Komenda do tymczasowego wyciszenia użytkowników</div>
+            <div class="command" onclick="copyCommand(this, 's!history')">s!history - Komenda do wyświetlania historii użytkownika</div>
+        </div>
+    </div>
+    <script>
+        function copyCommand(element, command) {
+            const commandText = command.split(' - ')[0]; // Pobranie samej komendy przed myślnikiem
+            navigator.clipboard.writeText(commandText).then(function() {
+                const copiedElement = document.createElement('div');
+                copiedElement.classList.add('copied');
+                copiedElement.textContent = 'Copied!';
+                element.appendChild(copiedElement);
+                setTimeout(function() {
+                    copiedElement.remove();
+                }, 1500); // 1500 ms = 1.5 sekundy, po tym czasie znika
+            }, function(err) {
+                alert('Błąd kopiowania komendy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
