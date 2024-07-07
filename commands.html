@@ -34,13 +34,15 @@
             padding: 20px;
             text-align: left; /* Tekst wyjustowany do lewej */
             margin-top: 20px;
+            position: relative; /* Ustawienie pozycji */
         }
         .logo {
             width: 150px; /* Ustaw szerokość logo */
             margin-bottom: 20px;
-            position: absolute;
+            position: absolute; /* Ustawienie pozycji absolutnej */
             top: 20px; /* Odległość od góry */
-            left: 20px; /* Odległość od lewej */
+            left: 50%; /* Ustawienie na środku */
+            transform: translateX(-50%); /* Centrowanie poziome */
         }
         h1 {
             margin-bottom: 10px;
